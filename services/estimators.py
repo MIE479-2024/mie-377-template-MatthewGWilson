@@ -3,10 +3,6 @@ import numpy as np
 
 def OLS(returns, factRet):
     # Use this function to perform a basic OLS regression with all factors.
-    # You can modify this function (inputs, outputs and code) as much as
-    # you need to.
-
-    # *************** WRITE YOUR CODE HERE ***************
     # ----------------------------------------------------------------------
 
     # Number of observations and factors

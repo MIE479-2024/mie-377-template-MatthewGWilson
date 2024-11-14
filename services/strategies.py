@@ -2,11 +2,6 @@ import numpy as np
 from services.estimators import *
 from services.optimization import *
 
-
-# this file will produce portfolios as outputs from data - the strategies can be implemented as classes or functions
-# if the strategies have parameters then it probably makes sense to define them as a class
-
-
 def equal_weight(periodReturns):
     """
     computes the equal weight vector as the portfolio
@@ -19,9 +14,7 @@ def equal_weight(periodReturns):
 
 
 class HistoricalMeanVarianceOptimization:
-    """
-    uses historical returns to estimate the covariance matrix and expected return
-    """
+    # uses historical returns to estimate the covariance matrix and expected return
 
     def __init__(self, NumObs=36):
         self.NumObs = NumObs  # number of observations to use
@@ -45,14 +38,12 @@ class HistoricalMeanVarianceOptimization:
 
 
 class OLS_MVO:
-    """
-    uses historical returns to estimate the covariance matrix and expected return
-    """
+    # uses historical returns to estimate the covariance matrix and expected return
 
     def __init__(self, NumObs=36):
         self.NumObs = NumObs  # number of observations to use
 
-    def execute_strategy(self, periodReturns, factorReturns):
+    def execute_strategy(self, periodReturns, factorReturns, short):
         """
         executes the portfolio allocation strategy based on the parameters in the __init__
 
@@ -65,5 +56,5 @@ class OLS_MVO:
         returns = periodReturns.iloc[(-1) * self.NumObs:, :]
         factRet = factorReturns.iloc[(-1) * self.NumObs:, :]
         mu, Q = OLS(returns, factRet)
-        x = MVO(mu, Q)
+        x = MVO(mu, Q, short)
         return x
