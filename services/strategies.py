@@ -14,6 +14,7 @@ class OLS_MVO_ChatGPT:
 
         :param factorReturns:
         :param periodReturns:
+        :param short:
         :return:x
         """
         T, n = periodReturns.shape
