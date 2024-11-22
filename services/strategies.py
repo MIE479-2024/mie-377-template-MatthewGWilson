@@ -24,7 +24,7 @@ class OLS_MVO_ChatGPT:
         mu, Q = OLS(returns, factRet)
         x = MVO(mu, Q, short)
         return x
-    
+ 
 class ChatGPT_Weights:
     # uses chatgpt provided weights
 
@@ -41,7 +41,6 @@ class ChatGPT_Weights:
         x = weights
         return x
     
-
 class OLS_Robust_MVO_ChatGPT:
     # uses historical returns to estimate the covariance matrix and expected return
 
@@ -67,7 +66,6 @@ class OLS_Robust_MVO_ChatGPT:
         N = len(periodReturns)
         x = Robust_MVO(mu, Q, lambda_value, alpha_value, N, short)
         return x
-
 
 class OLS_CVAR_ChatGPT:
     # uses historical returns to estimate the covariance matrix and expected return
